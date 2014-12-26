@@ -1,8 +1,5 @@
 {
   "name": "flight-control-tower",
-  "version": "0.1",
-  "dependencies": {
-    "underscore": "1.7.0"
-  }
+  "version": "0.1"
 }
 
