@@ -2,6 +2,14 @@
 
 Flight control tower is a tool that parses your [Flightjs](http://flightjs.github.io/) project and plots its component/events architecture.
 
+## usage
+
+```sh
+flight-control-tower <app folder> <output html file>
+```
+
+The app folder will be scanned for all flightjs components, parse them and spit out an html file with a graph that represents the components and events for the app's architecture.
+
 ## example
 
 ```sh
