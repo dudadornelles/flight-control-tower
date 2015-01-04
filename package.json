@@ -1,7 +1,8 @@
 {
   "name": "flight-control-tower",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Visualise your flightjs architecture by components and events",
+  "bin": "bin/flight-control-tower",
   "main": "bin/flight-control-tower",
   "dependencies": {
     "lodash": "^2.4.1",
