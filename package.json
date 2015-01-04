@@ -1,0 +1,34 @@
+{
+  "name": "flight-control-tower",
+  "version": "1.0.0",
+  "description": "Visualise your flightjs architecture by components and events",
+  "main": "bin/flight-control-tower",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "minimist": "^1.1.0"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5",
+    "multiline": "^1.0.1"
+  },
+  "scripts": {
+    "test": "jasmine-node spec/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dudadornelles/flight-control-tower"
+  },
+  "keywords": [
+    "flightjs",
+    "d3",
+    "events",
+    "graph",
+    "architecture"
+  ],
+  "author": "Duda Dornelles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dudadornelles/flight-control-tower/issues"
+  },
+  "homepage": "https://github.com/dudadornelles/flight-control-tower"
+}
