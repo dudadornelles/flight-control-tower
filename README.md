@@ -4,6 +4,14 @@ Flight control tower is a tool that parses your [Flightjs](http://flightjs.githu
 
 ## usage
 
+Install it:
+
+```sh
+npm install -g flight-control-tower
+```
+
+Run with:
+
 ```sh
 flight-control-tower <app folder> <output html file>
 ```
