@@ -11,9 +11,9 @@ cd example-app
 flight-control-tower app/ control-tower.html
 ```
 
-Open control-tower.html and you should see something like
+Open control-tower.html and you should see something like this:
 
-[[insert screenshot]]
+![flightjs/example-app architecture](http://i.imgur.com/XlJzgXD.jpg)
 
 ## license
 
