@@ -39,11 +39,6 @@ text {
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
 
-#container {
-  height: 800px;
-  overflow-y: scroll;
-}
-
         </style>
     </head>
 
@@ -74,8 +69,18 @@ callMap.forEach(function(call) {
   });
 });
 
-var width = 1200,
-    height = 1000;
+function bodyNewHeight () {
+  var bodyElement, bodyMargin;
+  bodyElement = $('body');
+  bodyMargin = parseInt(bodyElement.css('margin-top').replace('px', '')) +
+               parseInt(bodyElement.css('margin-bottom').replace('px', ''));
+  return window.innerHeight - bodyMargin;
+}
+
+$('body').height(bodyNewHeight());
+
+var width = $('body').width(),
+    height = $('body').height();
 
 var force = d3.layout.force()
     .nodes(d3.values(nodes))
@@ -144,6 +149,17 @@ function linkArc(d) {
 function transform(d) {
   return "translate(" + d.x + "," + d.y + ")";
 }
+
+$(window).resize(function () {
+  var width, height;
+
+  $('body').height(bodyNewHeight());
+
+  force.size([$('body').width(), $('body').height()]).
+    resume();
+  svg.attr("width", $('body').width())
+    .attr("height", $('body').height());
+});
         </script>
     </body>
 
