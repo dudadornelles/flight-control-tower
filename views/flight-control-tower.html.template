@@ -172,22 +172,21 @@ $(window).resize(function () {
 $('#filter').on('keyup', function () {
   function visibilityForFilter(element) {
     var filter, linksRelatedToElement;
-    filter = $('#filter')[0].value;
+    filter = RegExp($('#filter')[0].value);
 
     if (!filter) {
       return 1;
     }
 
     if (element.target) {
-      return element.target.name.indexOf(filter) >= 0 ? 1 :
-             element.source.name.indexOf(filter) >= 0 ? 1 : 0;
+      return filter.exec(element.target.name) || filter.exec(element.source.name) ? 1 : 0;
     } else {
       linksRelatedToElement = links.filter(function (link) {
-        return (link.target.name == element.name && link.source.name.indexOf(filter) >= 0) ||
-               (link.target.name.indexOf(filter) >= 0 && link.source.name == element.name);
+        return (link.target.name == element.name && filter.exec(link.source.name)) ||
+               (filter.exec(link.target.name) && link.source.name == element.name);
       });
       return linksRelatedToElement.length ? 1 :
-             element.name.indexOf(filter) >= 0 ? 1 : 0;
+             filter.exec(element.name) ? 1 : 0;
     }
   }
   d3.selectAll('text').style('opacity', visibilityForFilter);
