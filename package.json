@@ -5,6 +5,8 @@
   "bin": "bin/flight-control-tower",
   "main": "bin/flight-control-tower",
   "dependencies": {
+    "esprima": "^1.2.2",
+    "estraverse": "^1.9.1",
     "lodash": "^2.4.1",
     "minimist": "^1.1.0"
   },

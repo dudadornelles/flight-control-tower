@@ -28,6 +28,9 @@ this.on('element', 'click', {
 });
 this.on("click", 'g');
 this.on(this.methodToFindElement(), 'h', this.function);
+this.on('uiSwitchPage', function(e, page) {
+this.attr[page.name]();
+});
 */
     });
 
@@ -41,6 +44,7 @@ this.on(this.methodToFindElement(), 'h', this.function);
     expect(results.a.inbound).toContain('e');
     expect(results.a.inbound).toContain('h');
     expect(results.a.inbound).toContain('click');
+    expect(results.a.inbound).toContain('uiSwitchPage');
 
     // outbound events because of 'click'
     expect(results.a.outbound).toContain('f');
