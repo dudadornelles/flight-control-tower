@@ -28,6 +28,11 @@ this.on('element', 'click', {
 });
 this.on("click", 'g');
 this.on(this.methodToFindElement(), 'h', this.function);
+this.on("element", 'click', 'i');
+this.on('uiSwitchPage', function(e, page) {
+this.attr[page.name]();
+});
+
 */
     });
 
@@ -41,22 +46,26 @@ this.on(this.methodToFindElement(), 'h', this.function);
     expect(results.a.inbound).toContain('e');
     expect(results.a.inbound).toContain('h');
     expect(results.a.inbound).toContain('click');
+    expect(results.a.inbound).toContain('uiSwitchPage');
 
     // outbound events because of 'click'
-    expect(results.a.outbound).toContain('f');
     expect(results.a.outbound).toContain('g');
+    expect(results.a.outbound).toContain('i');
+    expect(results.a.outbound).toContain('f');
   });
 
   it('matches complex inbound click events registration (with multiline functions as callbacks)', function () {
     // given
     var content = multiline(function () {
 /*
-this.on(this.select('replyButtonTop'), 'click', function () {\n this.trigger(document, events.ui.replyBox.showReply);\n }.bind(this));
+this.on(this.select('replyButtonTop'), 'click', function () { 
+  this.trigger(document, events.ui.replyBox.showReply); 
+}.bind(this));
+  
 */
     });
 
     // when
-    debugger;
     matchAllInbound(content, results, 'a'); 
 
     // then
@@ -67,11 +76,12 @@ this.on(this.select('replyButtonTop'), 'click', function () {\n this.trigger(doc
     // given
     var content = multiline(function() {
 /*
-this.trigger("b", {a: 1});
-this.trigger("c", {
-  a: 1
-});
-this.trigger("d", data);
+this.trigger("a", {});
+this.trigger(eventVariable, {});
+this.trigger(document, 'c', {});
+this.trigger('d');
+this.trigger(document, 'd');
+
 */
     });
 
@@ -79,9 +89,9 @@ this.trigger("d", data);
     matchAllOutbound(content, results, 'a');
 
     // then
-    expect(results.a.outbound).toContain('b');
+    expect(results.a.outbound).toContain('a');
+    expect(results.a.outbound).toContain('eventVariable');
     expect(results.a.outbound).toContain('c');
-    expect(results.a.outbound).toContain('d');
   });
 
 });
