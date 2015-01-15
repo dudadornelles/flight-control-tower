@@ -23,6 +23,7 @@ this.on('element', 'click', {
 'subelementB': 'f'
 });
 this.on("click", 'g');
+this.on(this.methodToFindElement(), 'h', this.function);
 */
     });
 
@@ -35,6 +36,7 @@ this.on("click", 'g');
     expect(results.a.inbound).toContain('d');
     expect(results.a.inbound).toContain('e');
     expect(results.a.inbound).toContain('click');
+    expect(results.a.inbound).toContain('h');
 
     // outbound events because of 'click'
     expect(results.a.outbound).toContain('f');
