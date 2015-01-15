@@ -1,4 +1,6 @@
+
 # flight control tower
+![build status](https://api.travis-ci.org/dudadornelles/flight-control-tower.svg?branch=master)
 
 Flight control tower is a tool that parses your [Flightjs](http://flightjs.github.io/) project and plots its component/events architecture.
 
